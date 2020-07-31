@@ -17,11 +17,13 @@
     Private Sub Boxy0_TextChanged(sender As Object, e As EventArgs) Handles Boxy0.TextChanged
         pelota.Top = piso - alto - Val(Boxy0.Text)
     End Sub
+
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        y = -0.5 * g * t * t + Vini * Math.Sin(a) * t + y0
-        Vy = -g * t + Vini * Math.Sin(a)
-        x = Vini * Math.Cos(a) * t + x0
-        Vx = Vini * Math.Cos(a)
+        'y = -0.5 * g * t * t + Vini * Math.Sin(a) * t + y0
+        y = (Vini * Math.Sin(a) * t) - (0.5 * g * t * t) + y0
+        x = (Vini * Math.Cos(a) * t) + x0
+        Vy = (Vini * Math.Sin(a)) - (g * t)
+        Vx = Vini * Math.Cos(a) * t
         'Tv = 2 * (Vini * Math.Sin(a) / g)
         'hmax = (Vini * Vini * Math.Sin(a) * Math.Sin(a) / 2 * g)
 
@@ -41,8 +43,15 @@
         'Form3.Chart1.Series(1).Points.AddXY(t, vy)
         'Form3.Chart2.Series(0).Points.AddXY(t, x)
         'Form3.Chart2.Series(1).Points.AddXY(t, vx)
-
         t += 0.01
+        If y <= 0 Then
+            y0 = 1
+            x0 = 0
+            t = 0
+            Vini = Vini / 2
+            a = ToRadians(45)
+            g = BoxGravedad.Text
+        End If
     End Sub
 
     Private Sub ButtonProcesar_Click(sender As Object, e As EventArgs) Handles ButtonProcesar.Click

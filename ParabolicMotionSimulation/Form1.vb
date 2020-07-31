@@ -9,6 +9,7 @@
     Dim piso As Integer 'piso
     Dim alto As Integer ' tamaño objeto
     Dim coox As Integer 'coordenada x de suelo
+    Dim rebote As Integer 'Cantidad de rebotes
     Dim intervalo_timer As Integer
 
     Private Sub BoxX0_TextChanged(sender As Object, e As EventArgs) Handles BoxX0.TextChanged
@@ -26,7 +27,6 @@
         Vx = Vini * Math.Cos(a) * t
         'Tv = 2 * (Vini * Math.Sin(a) / g)
         'hmax = (Vini * Vini * Math.Sin(a) * Math.Sin(a) / 2 * g)
-
         LabelY.Text = y
         LabelX.Text = x
         LabelvTx.Text = Vx
@@ -45,16 +45,20 @@
         'Form3.Chart2.Series(1).Points.AddXY(t, vx)
         t += 0.01
         If y <= 0 Then
-            y0 = 1
-            x0 = 0
-            t = 0
-            Vini = Vini / 2
-            a = ToRadians(45)
-            g = BoxGravedad.Text
+            If rebote < 2 Then
+                rebote += 1
+                y0 = 1
+                x0 = pelota.Location.X - coox
+                t = 0
+                Vini /= 2
+            Else
+                Timer1.Enabled = False
+            End If
         End If
     End Sub
 
     Private Sub ButtonProcesar_Click(sender As Object, e As EventArgs) Handles ButtonProcesar.Click
+        rebote = 0
         y0 = Boxy0.Text
         x0 = BoxX0.Text
         Vini = BoxVini.Text

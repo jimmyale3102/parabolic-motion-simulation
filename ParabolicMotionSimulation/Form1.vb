@@ -9,6 +9,7 @@
     Dim piso As Integer 'piso
     Dim alto As Integer ' tamaño objeto
     Dim coox As Integer 'coordenada x de suelo
+    Dim rebote As Integer 'Cantidad de rebotes
     Dim intervalo_timer As Integer
 
     Private Sub BoxX0_TextChanged(sender As Object, e As EventArgs) Handles BoxX0.TextChanged
@@ -17,13 +18,16 @@
     Private Sub Boxy0_TextChanged(sender As Object, e As EventArgs) Handles Boxy0.TextChanged
         pelota.Top = piso - alto - Val(Boxy0.Text)
     End Sub
+
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        y = -0.5 * g * t * t + Vini * Math.Sin(a) * t + y0
-        Vy = -g * t + Vini * Math.Sin(a)
-        x = Vini * Math.Cos(a) * t + x0
-        Vx = Vini * Math.Cos(a)
-        'Tv = 2 * (Vini * Math.Sin(a) / g)
-        'hmax = (Vini * Vini * Math.Sin(a) * Math.Sin(a) / 2 * g)
+        'y = -0.5 * g * t * t + Vini * Math.Sin(a) * t + y0
+        y = (Vini * Math.Sin(a) * t) - (0.5 * g * t * t) + y0
+        x = (Vini * Math.Cos(a) * t) + x0
+        Vy = (Vini * Math.Sin(a)) - (g * t)
+        Vx = Vini * Math.Cos(a) * t
+        Tv = (2 * Vini * Math.Sin(a)) / g
+        hmax = (Vini * Vini * Math.Sin(a)) / (2 * g)
+
 
         LabelY.Text = y
         LabelX.Text = x
@@ -41,18 +45,26 @@
         'Form3.Chart1.Series(1).Points.AddXY(t, vy)
         'Form3.Chart2.Series(0).Points.AddXY(t, x)
         'Form3.Chart2.Series(1).Points.AddXY(t, vx)
-
-        t += 0.09
+        t += 0.01
         If y <= 0 Then
-            Timer1.Enabled = False
+            If rebote < 2 Then
+                rebote += 1
+                y0 = 1
+                x0 = pelota.Location.X - coox
+                t = 0
+                Vini /= 2
+            Else
+                Timer1.Enabled = False
+            End If
         End If
     End Sub
 
     Private Sub ButtonProcesar_Click(sender As Object, e As EventArgs) Handles ButtonProcesar.Click
+        rebote = 0
         y0 = Boxy0.Text
         x0 = BoxX0.Text
         Vini = BoxVini.Text
-        a = ToRadians() BoxAngulo.Text
+        a = ToRadians(BoxAngulo.Text)
         g = BoxGravedad.Text
         intervalo_timer = BoxTimer.Text
         Timer1.Interval = intervalo_timer
@@ -77,8 +89,8 @@
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
-    Private Sub ToRadians(grade As Integer) As Double
+    Function ToRadians(grade As Integer) As Double
         Return (grade * Math.PI) / 180
-    End Sub
+    End Function
 
 End Class

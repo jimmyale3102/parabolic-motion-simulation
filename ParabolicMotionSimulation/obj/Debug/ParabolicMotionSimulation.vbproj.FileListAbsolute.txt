@@ -11,3 +11,16 @@ C:\Users\Juan José Gutiérrez\Desktop\parabolic-motion-simulation\ParabolicMoti
 C:\Users\Juan José Gutiérrez\Desktop\parabolic-motion-simulation\ParabolicMotionSimulation\obj\Debug\ParabolicMotionSimulation.xml
 C:\Users\Juan José Gutiérrez\Desktop\parabolic-motion-simulation\ParabolicMotionSimulation\obj\Debug\ParabolicMotionSimulation.pdb
 C:\Users\Juan José Gutiérrez\Desktop\parabolic-motion-simulation\ParabolicMotionSimulation\obj\Debug\ParabolicMotionSimulation.Graficas.resources
+C:\Users\Alejandro\source\repos\ParabolicMotionSimulation\ParabolicMotionSimulation\bin\Debug\ParabolicMotionSimulation.exe.config
+C:\Users\Alejandro\source\repos\ParabolicMotionSimulation\ParabolicMotionSimulation\bin\Debug\ParabolicMotionSimulation.exe
+C:\Users\Alejandro\source\repos\ParabolicMotionSimulation\ParabolicMotionSimulation\bin\Debug\ParabolicMotionSimulation.pdb
+C:\Users\Alejandro\source\repos\ParabolicMotionSimulation\ParabolicMotionSimulation\bin\Debug\ParabolicMotionSimulation.xml
+C:\Users\Alejandro\source\repos\ParabolicMotionSimulation\ParabolicMotionSimulation\obj\Debug\ParabolicMotionSimulation.vbprojAssemblyReference.cache
+C:\Users\Alejandro\source\repos\ParabolicMotionSimulation\ParabolicMotionSimulation\obj\Debug\ParabolicMotionSimulation.Form1.resources
+C:\Users\Alejandro\source\repos\ParabolicMotionSimulation\ParabolicMotionSimulation\obj\Debug\ParabolicMotionSimulation.Graficas.resources
+C:\Users\Alejandro\source\repos\ParabolicMotionSimulation\ParabolicMotionSimulation\obj\Debug\ParabolicMotionSimulation.Resources.resources
+C:\Users\Alejandro\source\repos\ParabolicMotionSimulation\ParabolicMotionSimulation\obj\Debug\ParabolicMotionSimulation.vbproj.GenerateResource.cache
+C:\Users\Alejandro\source\repos\ParabolicMotionSimulation\ParabolicMotionSimulation\obj\Debug\ParabolicMotionSimulation.vbproj.CoreCompileInputs.cache
+C:\Users\Alejandro\source\repos\ParabolicMotionSimulation\ParabolicMotionSimulation\obj\Debug\ParabolicMotionSimulation.exe
+C:\Users\Alejandro\source\repos\ParabolicMotionSimulation\ParabolicMotionSimulation\obj\Debug\ParabolicMotionSimulation.xml
+C:\Users\Alejandro\source\repos\ParabolicMotionSimulation\ParabolicMotionSimulation\obj\Debug\ParabolicMotionSimulation.pdb

@@ -63,6 +63,8 @@ Partial Class Form1
         Me.pelota = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PicturePiso = New System.Windows.Forms.PictureBox()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.PanelCabecera.SuspendLayout()
         Me.PanelMenu.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -596,4 +598,6 @@ Partial Class Form1
     Friend WithEvents Label14 As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents LabelvTy As Label
+    Friend WithEvents Timer2 As Timer
+    Friend WithEvents Timer3 As Timer
 End Class

@@ -18,7 +18,6 @@
         pelota.Top = piso - alto - Val(Boxy0.Text)
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-
         y = -0.5 * g * t * t + Vini * Math.Sin(a) * t + y0
         Vy = -g * t + Vini * Math.Sin(a)
         x = Vini * Math.Cos(a) * t + x0
@@ -43,14 +42,10 @@
         'Form3.Chart2.Series(0).Points.AddXY(t, x)
         'Form3.Chart2.Series(1).Points.AddXY(t, vx)
 
-        t += 0.09
-        If y <= 0 Then
-            Timer1.Enabled = False
-        End If
+        t += 0.01
     End Sub
 
     Private Sub ButtonProcesar_Click(sender As Object, e As EventArgs) Handles ButtonProcesar.Click
-
         y0 = Boxy0.Text
         x0 = BoxX0.Text
         Vini = BoxVini.Text

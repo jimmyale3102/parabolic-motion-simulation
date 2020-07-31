@@ -63,7 +63,6 @@ Partial Class Form1
         Me.pelota = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PicturePiso = New System.Windows.Forms.PictureBox()
-        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.PanelCabecera.SuspendLayout()
         Me.PanelMenu.SuspendLayout()
@@ -527,12 +526,9 @@ Partial Class Form1
         Me.PicturePiso.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.PicturePiso.Location = New System.Drawing.Point(63, 303)
         Me.PicturePiso.Name = "PicturePiso"
-        Me.PicturePiso.Size = New System.Drawing.Size(788, 10)
+        Me.PicturePiso.Size = New System.Drawing.Size(652, 10)
         Me.PicturePiso.TabIndex = 4
         Me.PicturePiso.TabStop = False
-        '
-        'Timer2
-        '
         '
         'Form1
         '
@@ -601,6 +597,5 @@ Partial Class Form1
     Friend WithEvents Label14 As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents LabelvTy As Label
-    Friend WithEvents Timer2 As Timer
     Friend WithEvents Timer3 As Timer
 End Class

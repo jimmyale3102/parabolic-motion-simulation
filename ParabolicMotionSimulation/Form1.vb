@@ -18,6 +18,7 @@
         pelota.Top = piso - alto - Val(Boxy0.Text)
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+
         y = -0.5 * g * t * t + Vini * Math.Sin(a) * t + y0
         Vy = -g * t + Vini * Math.Sin(a)
         x = Vini * Math.Cos(a) * t + x0
@@ -49,10 +50,11 @@
     End Sub
 
     Private Sub ButtonProcesar_Click(sender As Object, e As EventArgs) Handles ButtonProcesar.Click
+
         y0 = Boxy0.Text
         x0 = BoxX0.Text
         Vini = BoxVini.Text
-        a = ToRadians() BoxAngulo.Text
+        a = ToRadians(BoxAngulo.Text)
         g = BoxGravedad.Text
         intervalo_timer = BoxTimer.Text
         Timer1.Interval = intervalo_timer
@@ -77,8 +79,8 @@
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
-    Private Sub ToRadians(grade As Integer) As Double
+    Function ToRadians(grade As Integer) As Double
         Return (grade * Math.PI) / 180
-    End Sub
+    End Function
 
 End Class

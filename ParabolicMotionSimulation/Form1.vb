@@ -42,18 +42,12 @@
         LabelHmax.Text = Math.Round(hmax, 2)
         LabelhProcess.Text = Math.Round(hmaxProc, 2)
 
-
-
         pelota.Location = New Point(x + coox, piso - y - alto)
 
         Graficas.Chart1.Series(0).Points.AddXY(totalTime, x)
-
         Graficas.Chart2.Series(0).Points.AddXY(totalTime, y)
-
         Graficas.Chart3.Series(0).Points.AddXY(totalTime, Vx)
-
         Graficas.Chart4.Series(0).Points.AddXY(totalTime, Vy)
-
 
         t += 0.01
         totalTime += t

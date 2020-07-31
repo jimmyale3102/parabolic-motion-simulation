@@ -25,8 +25,10 @@
         x = (Vini * Math.Cos(a) * t) + x0
         Vy = (Vini * Math.Sin(a)) - (g * t)
         Vx = Vini * Math.Cos(a) * t
-        'Tv = 2 * (Vini * Math.Sin(a) / g)
-        'hmax = (Vini * Vini * Math.Sin(a) * Math.Sin(a) / 2 * g)
+        Tv = (2 * Vini * Math.Sin(a)) / g
+        hmax = (Vini * Vini * Math.Sin(a)) / (2 * g)
+
+
         LabelY.Text = y
         LabelX.Text = x
         LabelvTx.Text = Vx

@@ -12,6 +12,8 @@
     Dim rebote As Integer 'Cantidad de rebotes
     Dim intervalo_timer As Integer
 
+
+
     Private Sub BoxX0_TextChanged(sender As Object, e As EventArgs) Handles BoxX0.TextChanged
         pelota.Left = coox + Val(BoxX0.Text)
     End Sub
@@ -26,25 +28,37 @@
         Vy = (Vini * Math.Sin(a)) - (g * t)
         Vx = Vini * Math.Cos(a) * t
         Tv = (2 * Vini * Math.Sin(a)) / g
+        VPro = Tv * t
         hmax = (Vini * Vini * Math.Sin(a)) / (2 * g)
+        hmaxProc = hmax * y
 
 
-        LabelY.Text = y
-        LabelX.Text = x
-        LabelvTx.Text = Vx
-        LabelvTy.Text = Vy
+        LabelY.Text = Math.Round(y, 2)
+        LabelX.Text = Math.Round(x, 2)
+        LabelvTx.Text = Math.Round(Vx, 2)
+        LabelvTy.Text = Math.Round(Vy, 2)
+        LabeltVue.Text = Math.Round(Tv, 2)
+        LabelVprocess.Text = Math.Round(VPro, 2)
+        LabelHmax.Text = Math.Round(hmax, 2)
+        LabelhProcess.Text = Math.Round(hmaxProc, 2)
 
-        'LabeltVue.Text = Tv
-        '   LabelVprocess.Text =
-        'LabelHmax.Text = hmax
-        '  LabelhProcess.Text =
+
 
         pelota.Location = New Point(x + coox, piso - y - alto)
 
-        'Form3.Chart1.Series(0).Points.AddXY(t, y)
-        'Form3.Chart1.Series(1).Points.AddXY(t, vy)
-        'Form3.Chart2.Series(0).Points.AddXY(t, x)
-        'Form3.Chart2.Series(1).Points.AddXY(t, vx)
+        Graficas.Chart1.Series(0).Points.AddXY(t, x)
+        Graficas.Chart1.Series(1).Points.AddXY(t, Vx)
+
+        Graficas.Chart2.Series(0).Points.AddXY(t, y)
+        Graficas.Chart2.Series(1).Points.AddXY(t, Vy)
+
+        Graficas.Chart3.Series(0).Points.AddXY(t, Vx)
+        Graficas.Chart3.Series(1).Points.AddXY(t, x)
+
+        Graficas.Chart4.Series(0).Points.AddXY(t, Vy)
+        Graficas.Chart4.Series(1).Points.AddXY(t, y)
+
+
         t += 0.01
         If y <= 0 Then
             If rebote < 2 Then
@@ -58,6 +72,8 @@
             End If
         End If
     End Sub
+
+
 
     Private Sub ButtonProcesar_Click(sender As Object, e As EventArgs) Handles ButtonProcesar.Click
         rebote = 0

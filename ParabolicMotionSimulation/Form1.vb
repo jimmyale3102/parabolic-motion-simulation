@@ -4,7 +4,7 @@
     Dim x0, y0 As Integer 'posicion inicial en x0 y y0 (enteros)
     Dim Vini, a As Integer 'velocidad inicial y angulo en grados (enteros)
     Dim g As Double 'gravedad (decimal)
-    Dim t As Double
+    Dim t, totalTime As Double
     Dim x, y, Vx, Vy, Tv, VPro, hmax, hmaxProc As Double
     Dim piso As Integer 'piso
     Dim alto As Integer ' tamaño objeto
@@ -46,20 +46,17 @@
 
         pelota.Location = New Point(x + coox, piso - y - alto)
 
-        Graficas.Chart1.Series(0).Points.AddXY(t, x)
-        Graficas.Chart1.Series(1).Points.AddXY(t, Vx)
+        Graficas.Chart1.Series(0).Points.AddXY(totalTime, x)
 
-        Graficas.Chart2.Series(0).Points.AddXY(t, y)
-        Graficas.Chart2.Series(1).Points.AddXY(t, Vy)
+        Graficas.Chart2.Series(0).Points.AddXY(totalTime, y)
 
-        Graficas.Chart3.Series(0).Points.AddXY(t, Vx)
-        Graficas.Chart3.Series(1).Points.AddXY(t, x)
+        Graficas.Chart3.Series(0).Points.AddXY(totalTime, Vx)
 
-        Graficas.Chart4.Series(0).Points.AddXY(t, Vy)
-        Graficas.Chart4.Series(1).Points.AddXY(t, y)
+        Graficas.Chart4.Series(0).Points.AddXY(totalTime, Vy)
 
 
         t += 0.01
+        totalTime += t
         If y <= 0 Then
             If rebote < 2 Then
                 rebote += 1
@@ -93,6 +90,7 @@
         alto = pelota.Height
         coox = PicturePiso.Location.X
         t = 0
+        totalTime = t
     End Sub
     Private Sub ButtonReinicio_Click(sender As Object, e As EventArgs) Handles ButtonReinicio.Click
         Application.Restart()
